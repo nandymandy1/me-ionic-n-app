@@ -1,0 +1,30 @@
+{
+  "name": "maintenance_module",
+  "version": "1.0.0",
+  "description": "Application for the company",
+  "main": "app.js",
+  "scripts": {
+    "test": "Maintenace App With Ionic",
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "passport-jwt": "*"
+  },
+  "keywords": [
+    "Maintenance",
+    "module",
+    "factory",
+    "app",
+    "management",
+    "erp"
+  ],
+  "author": "Nandymandy",
+  "license": "MIT"
+}

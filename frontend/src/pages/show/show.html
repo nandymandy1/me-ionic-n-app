@@ -1,0 +1,73 @@
+<!--
+  Generated template for the ShowPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>show</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div padding>
+    <ion-segment [(ngModel)]="appr">
+      <ion-segment-button value="appro">
+        Approvals
+      </ion-segment-button>
+      <ion-segment-button value="iss">
+        Issue
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="appr">
+    <ion-list *ngSwitchCase="'appro'">
+      
+        <ion-card *ngFor="let app of approvals;index as i">
+            <ion-card-content>
+              <ion-card-title>
+                {{ app.req_b.name }}
+                </ion-card-title>
+              <span>Asset Id:</span> {{ app.a_id }} <br>
+              <span>Size:</span> {{ app.size }} <br>
+              <span>Style Id:</span> {{ app.style_id }} <br>
+              <span>Date:</span> {{ app.cdate | date :'short' }} <br>
+              <span>Floor:</span> {{ app.req_b.floor }} <br>
+              <span>Section: </span>{{ app.req_b.section }} <br>
+              <span>Line: </span> {{ app.req_b.line }} <br>
+              <span>Requsition To: </span> {{ app.req_to }} <br>
+              <button ion-button color="secondary" (click)="approve(app._id, i)" full>Approve</button>
+            </ion-card-content>
+          </ion-card>
+    
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'iss'">
+
+          <ion-card *ngFor="let is of issues">
+              <ion-card-content>
+                  <ion-card-title>
+                    {{ is.req_b.name }}
+                    </ion-card-title>
+                  <span>Asset Id:</span> {{ is.a_id }} <br>
+                  <span>Size:</span> {{ is.size }} <br>
+                  <span>Style Id:</span> {{ is.style_id }} <br>
+                  <span>Date:</span> {{ is.cdate | date :'short' }} <br>
+                  <span>Approval Date:</span> {{ is.adate | date :'short' }} <br>
+                  <span>Floor:</span> {{ is.req_b.floor }} <br>
+                  <span>Section: </span>{{ is.req_b.section }} <br>
+                  <span>Line: </span> {{ is.req_b.line }} <br>
+                  <span>Requsition To: </span> {{ is.req_to }} <br>
+                  <button ion-button color="default" (click)="issue(is._id, i)" full>Issue</button>
+                </ion-card-content>
+            </ion-card>
+      
+    </ion-list>
+  </div>
+</ion-content>
