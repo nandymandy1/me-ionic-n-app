@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class SendRqsProvider {
-
+  domain: String = "https://fierce-falls-78024.herokuapp.com";
   constructor(public http: Http) {
     // console.log('Hello SendRqsProvider Provider');
   }
@@ -21,31 +21,31 @@ export class SendRqsProvider {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     return this.http
-      .post("http://localhost:5000/reqs/add", reqs, { headers: headers })
+      .post(this.domain + "/reqs/add", reqs, { headers: headers })
       .map(res => res.json());
   }
 
   // get all the approvals
   getApprovals() {
-    return this.http.get('http://localhost:5000/reqs/get/reqwfa')
+    return this.http.get(this.domain + '/reqs/get/reqwfa')
       .map(res => res.json());
   }
 
   // get all the issues
   getIssues() {
-    return this.http.get('http://localhost:5000/reqs/get/reqwfi')
+    return this.http.get(this.domain + '/reqs/get/reqwfi')
       .map(res => res.json());
   }
 
   // Approves
   approves(id) {
-    return this.http.get(`http://localhost:5000/reqs/approve/${id}`)
+    return this.http.get(`${this.domain}/reqs/approve/${id}`)
       .map(res => res.json());
   }
 
   // get the requsition from the databse
   getReqI(id) {
-    return this.http.get(`http://localhost:5000/reqs/issue/${id}`)
+    return this.http.get(`${this.domain}/reqs/issue/${id}`)
       .map(res => res.json());
   }
 
@@ -53,13 +53,13 @@ export class SendRqsProvider {
   postIssueReq(requ) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
-    return this.http.post(`http://localhost:5000/reqs/issue`, requ, { headers: headers })
+    return this.http.post(`${this.domain}/reqs/issue`, requ, { headers: headers })
       .map(res => res.json());
   }
 
   // get all the issued requsitions
   getIRS(){
-    return this.http.get(`http://localhost:5000/reqs/get/issued`)
+    return this.http.get(`${this.domain}/reqs/get/issued`)
     .map(res => res.json());
   }
 

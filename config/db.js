@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === "production") {
     module.exports = {
       database:
-        "mongodb://nandymandy:nandymandy@ds239368.mlab.com:39368/mean-auth-app",
+        "mongodb://nandymandy:nandymandy123@ds119772.mlab.com:19772/mein-app",
       secret: "yoursecret"
     };
   } else {

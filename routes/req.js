@@ -115,7 +115,7 @@ router.get('/get/reqwfi', (req, res, next) => {
 
 // View all the issued requsitions
 router.get('/get/issued', (req, res, next) => {
-    Req.find().sort({ cdate: "desc"})
+    Req.find({ status:"i" }).sort({ cdate: "desc"})
     .then(requ => {
         res.json({
             requ: requ,
@@ -123,7 +123,6 @@ router.get('/get/issued', (req, res, next) => {
         });
     });
 });
-
 
 // Export Router
 module.exports = router;
