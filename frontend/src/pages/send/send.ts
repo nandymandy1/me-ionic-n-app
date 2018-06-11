@@ -77,4 +77,9 @@ export class SendPage {
       this.name = "";
     }
 
+    // Open qr code scanner
+    openQr(){
+      console.log('Hello How r');
+    }
+
 }

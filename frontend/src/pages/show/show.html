@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="default">
+  <ion-navbar color="sprimary">
     <ion-title>Requsitions</ion-title>
   </ion-navbar>
 
@@ -15,8 +15,8 @@
 
 <ion-content padding>
 
-  <div padding>
-    <ion-segment [(ngModel)]="appr">
+  <div padding >
+    <ion-segment color="sprimary" [(ngModel)]="appr">
       <ion-segment-button value="appro">
         Approvals
       </ion-segment-button>
@@ -35,7 +35,7 @@
         <ion-card *ngFor="let app of approvals;index as i">
             <ion-card-content>
               <ion-card-title>
-                {{ app.i_name }}
+                  {{ app.i_name }}
                 </ion-card-title>
               <span>Requsition By: </span> {{ app.req_b.name }} <br>
               <span>Requsition To: </span> {{ app.req_to }} <br>
@@ -46,7 +46,7 @@
               <span>Floor:</span> {{ app.req_b.floor }} <br>
               <span>Section: </span>{{ app.req_b.section }} <br>
               <span>Line: </span> {{ app.req_b.line }} <br>
-              <button ion-button color="secondary" (click)="approve(app._id, i)" full>Approve</button>
+              <button ion-button color="secondary" (click)="approve(app._id, i)" block outline>Approve</button>
             </ion-card-content>
           </ion-card>
     
@@ -69,7 +69,7 @@
                   <span>Floor:</span> {{ is.req_b.floor }} <br>
                   <span>Section: </span>{{ is.req_b.section }} <br>
                   <span>Line: </span> {{ is.req_b.line }} <br>
-                  <button ion-button color="default" (click)="viewIssuePage(is._id)" full>Issue</button>
+                  <button ion-button color="primary" (click)="viewIssuePage(is._id)" block outline>Issue</button>
                 </ion-card-content>
             </ion-card>
       

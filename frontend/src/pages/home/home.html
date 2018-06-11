@@ -1,29 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="sprimary">
     <ion-title>
-      Requsitions
+      Requsitions Manager
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-<br>
-<br>
-<br>
-<br>
-<br>  
-    <ion-list>
+  <br>
+  <ion-card>
+    <ion-card-header>
+      Requsitions
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <button ion-item color="secondary" (click)="sendReqs()">
+          <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+          &nbsp;&nbsp;Send Requsitions
+        </button>
+        <br>
+        <button ion-item color="danger" (click)="showReqs()">
+          <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
+          &nbsp;&nbsp;Show Requsitions
+        </button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <br>
+  <!--
+  <ion-card>
+    <ion-card-header>
+      Dashboard
+    </ion-card-header>
+    <ion-card-content>
       
-      <button ion-item color="secondary" (click)="sendReqs()">
-        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
-        Send Requsitions
-      </button>
-      <br><br>
-      <button ion-item color="danger" (click)="showReqs()">
-        <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
-        Show Requsitions
-      </button>
-  
-    </ion-list>
+      <ion-row>
+        <ion-col col-5>
+          <h4>Total Number of Requsitions</h4>
+        </ion-col>
+        <ion-col col-7>
+          
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+-->
 </ion-content>

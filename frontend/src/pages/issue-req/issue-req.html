@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="sprimary">
     <ion-title>Issue Requsition</ion-title>
   </ion-navbar>
 
@@ -14,23 +14,30 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="validate()">
-    <ion-item>
-      <ion-label>Design Number</ion-label>
-      <ion-input type="text" [(ngModel)]="d_no" name="d_no"></ion-input>
-
-    </ion-item>
-    
-    <ion-item>
-        <ion-label>Issued Quantity</ion-label>
-        <ion-input type="number" [(ngModel)]="i_qty" name="i_qty"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Rate</ion-label>
-      <ion-input type="number" [(ngModel)]="rate" name="rate"></ion-input>
-    </ion-item>
-
-    <button ion-button type="submit" block>Issue Requsition</button>
-  </form>
+  <ion-card>
+    <ion-card-header>
+      Issue Requsition Details
+    </ion-card-header>
+    <ion-card-content>
+        <form (ngSubmit)="validate()">
+            <ion-item>
+              <ion-label color="dark">Design Number</ion-label>
+              <ion-input type="text" [(ngModel)]="d_no" name="d_no"></ion-input>
+        
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Issued Quantity</ion-label>
+                <ion-input type="number" [(ngModel)]="i_qty" name="i_qty"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label color="dark">Rate</ion-label>
+              <ion-input type="number" [(ngModel)]="rate" name="rate"></ion-input>
+            </ion-item>
+            <br>
+            <button ion-button type="submit" color="dblue" block outline>Issue Requsition</button>
+          </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
