@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>show</ion-title>
+  <ion-navbar color="default">
+    <ion-title>Requsitions</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,25 +23,29 @@
       <ion-segment-button value="iss">
         Issue
       </ion-segment-button>
+      <ion-segment-button value="issr">
+        Issued Requsition
+      </ion-segment-button>
     </ion-segment>
   </div>
   
   <div [ngSwitch]="appr">
     <ion-list *ngSwitchCase="'appro'">
-      
+      <h2>To be Approved</h2>
         <ion-card *ngFor="let app of approvals;index as i">
             <ion-card-content>
               <ion-card-title>
-                {{ app.req_b.name }}
+                {{ app.i_name }}
                 </ion-card-title>
+              <span>Requsition By: </span> {{ app.req_b.name }} <br>
+              <span>Requsition To: </span> {{ app.req_to }} <br>
               <span>Asset Id:</span> {{ app.a_id }} <br>
               <span>Size:</span> {{ app.size }} <br>
               <span>Style Id:</span> {{ app.style_id }} <br>
-              <span>Date:</span> {{ app.cdate | date :'short' }} <br>
+              <span>Requsition Date:</span> {{ app.cdate | date :'short' }} <br>
               <span>Floor:</span> {{ app.req_b.floor }} <br>
               <span>Section: </span>{{ app.req_b.section }} <br>
               <span>Line: </span> {{ app.req_b.line }} <br>
-              <span>Requsition To: </span> {{ app.req_to }} <br>
               <button ion-button color="secondary" (click)="approve(app._id, i)" full>Approve</button>
             </ion-card-content>
           </ion-card>
@@ -49,25 +53,54 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'iss'">
-
+      <h2>To be Issued</h2>
           <ion-card *ngFor="let is of issues">
               <ion-card-content>
                   <ion-card-title>
-                    {{ is.req_b.name }}
+                    {{ is.i_name }}
                     </ion-card-title>
+                  <span>Requsition By: </span> {{ is.req_b.name }} <br>
+                  <span>Requsition To: </span> {{ is.req_to }} <br>
                   <span>Asset Id:</span> {{ is.a_id }} <br>
                   <span>Size:</span> {{ is.size }} <br>
                   <span>Style Id:</span> {{ is.style_id }} <br>
-                  <span>Date:</span> {{ is.cdate | date :'short' }} <br>
+                  <span>Requsition Date:</span> {{ is.cdate | date :'short' }} <br>
                   <span>Approval Date:</span> {{ is.adate | date :'short' }} <br>
                   <span>Floor:</span> {{ is.req_b.floor }} <br>
                   <span>Section: </span>{{ is.req_b.section }} <br>
                   <span>Line: </span> {{ is.req_b.line }} <br>
-                  <span>Requsition To: </span> {{ is.req_to }} <br>
-                  <button ion-button color="default" (click)="issue(is._id, i)" full>Issue</button>
+                  <button ion-button color="default" (click)="viewIssuePage(is._id)" full>Issue</button>
                 </ion-card-content>
             </ion-card>
       
     </ion-list>
+
+    <ion-list *ngSwitchCase="'issr'">
+      <h2>Issued Requstions</h2>
+
+          <ion-card *ngFor="let ir of irs">
+              <ion-card-content>
+                  <ion-card-title>
+                    {{ ir.i_name }}
+                  </ion-card-title>
+                  <span>Requsition By: </span> {{ ir.req_b.name }} <br>
+                  <span>Requsition To: </span> {{ ir.req_to }} <br>
+                  <span>Rate:</span> {{ ir.rate }} <br>
+                  <span>Quantity:</span> {{ ir.i_qty }} <br>
+                  <span>Total Price:</span> {{ ir.i_qty * ir.rate | number : '1.2-2' }} <br>
+                  <span>Asset Id:</span> {{ ir.a_id }} <br>
+                  <span>Size:</span> {{ ir.size }} <br>
+                  <span>Style Id:</span> {{ ir.style_id }} <br>
+                  <span>Requsition Date:</span> {{ ir.cdate | date :'short' }} <br>
+                  <span>Approval Date:</span> {{ ir.adate | date :'short' }} <br>
+                  <span>Issue Date:</span> {{ ir.idate | date :'short' }} <br>
+                  <span>Floor:</span> {{ ir.req_b.floor }} <br>
+                  <span>Section: </span>{{ ir.req_b.section }} <br>
+                  <span>Line: </span> {{ ir.req_b.line }} <br>
+                </ion-card-content>
+            </ion-card>
+      
+    </ion-list>
+
   </div>
 </ion-content>

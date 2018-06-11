@@ -27,7 +27,6 @@ router.post("/add", (req, res, next) => {
             console.log(err);
             res.json({ success: false, msg: "Failed to add the Requsition" });
         } else {
-            console.log(requ);
             res.json({
                 success: true,
                 msg: "Requsition added successfully",

@@ -11,6 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SendPage } from "../pages/send/send";
 import { ShowPage } from '../pages/show/show';
+import { IssueReqPage } from '../pages/issue-req/issue-req';
 
 import { SendRqsProvider } from '../providers/send-rqs/send-rqs';
 
@@ -21,7 +22,8 @@ import { SendRqsProvider } from '../providers/send-rqs/send-rqs';
     MyApp,
     HomePage,
     SendPage,
-    ShowPage
+    ShowPage,
+    IssueReqPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { SendRqsProvider } from '../providers/send-rqs/send-rqs';
     MyApp,
     HomePage,
     SendPage,
-    ShowPage
+    ShowPage,
+    IssueReqPage
   ],
   providers: [
     StatusBar,

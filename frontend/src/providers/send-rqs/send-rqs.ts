@@ -17,7 +17,7 @@ export class SendRqsProvider {
     // console.log('Hello SendRqsProvider Provider');
   }
 
-  sendReqs(reqs){
+  sendReqs(reqs) {
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     return this.http
@@ -26,27 +26,41 @@ export class SendRqsProvider {
   }
 
   // get all the approvals
-  getApprovals(){
+  getApprovals() {
     return this.http.get('http://localhost:5000/reqs/get/reqwfa')
-    .map(res => res.json());
+      .map(res => res.json());
   }
 
   // get all the issues
-  getIssues(){
+  getIssues() {
     return this.http.get('http://localhost:5000/reqs/get/reqwfi')
-    .map(res => res.json());
+      .map(res => res.json());
   }
 
   // Approves
-  approves(id){
+  approves(id) {
     return this.http.get(`http://localhost:5000/reqs/approve/${id}`)
-    .map(res => res.json())
+      .map(res => res.json());
   }
-  
-  // Issues
-  issues(id){
+
+  // get the requsition from the databse
+  getReqI(id) {
     return this.http.get(`http://localhost:5000/reqs/issue/${id}`)
-    .map(res => res.json())
+      .map(res => res.json());
+  }
+
+  // Post request to issue Requsition
+  postIssueReq(requ) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http.post(`http://localhost:5000/reqs/issue`, requ, { headers: headers })
+      .map(res => res.json());
+  }
+
+  // get all the issued requsitions
+  getIRS(){
+    return this.http.get(`http://localhost:5000/reqs/get/issued`)
+    .map(res => res.json());
   }
 
 }

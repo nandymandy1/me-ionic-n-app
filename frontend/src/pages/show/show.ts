@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-angular';
 import { SendRqsProvider } from '../../providers/send-rqs/send-rqs';
+import { IssueReqPage } from '../issue-req/issue-req';
 
 /**
  * Generated class for the ShowPage page.
@@ -18,6 +19,7 @@ export class ShowPage {
 
   approvals:Array<any>;
   issues:Array<any>;
+  irs:Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private sR: SendRqsProvider, private toastController: ToastController ) {
   }
@@ -25,12 +27,12 @@ export class ShowPage {
   ionViewDidLoad() {
     this.getA();
     this.getI();
+    this.getIR();
   }
   // get all the requsisiotns which are waiting to be approved on loading
   getA(){
     this.sR.getApprovals().subscribe(res => {
       this.approvals = res.req;
-      console.log(this.approvals);
     });
   }
 
@@ -38,7 +40,13 @@ export class ShowPage {
   getI(){
     this.sR.getIssues().subscribe(res => {
       this.issues = res.requ;
-      console.log(this.issues);
+    });
+  }
+
+  // get all the issued Requsitons
+  getIR(){
+    this.sR.getIRS().subscribe(res => {
+      this.irs = res.requ;
     });
   }
 
@@ -64,27 +72,8 @@ export class ShowPage {
   }
 
   // Issue Requsition Page Push
-  
-  /*
-  // Issue
-  issue(id, key){
-    this.sR.issues(id).subscribe(res => {
-      if(res.success){
-        let successInputToast = this.toastController.create({
-          message: res.msg,
-          duration: 2500
-        });
-        successInputToast.present();
-        this.issues.splice(key, 1);
-      } else {
-        let failInputToast = this.toastController.create({
-          message: "Failed to Issue the Requsition",
-          duration: 2500
-        });
-        failInputToast.present();
-      }
-    });
- }
- */
+  viewIssuePage(id){
+    this.navCtrl.push(IssueReqPage, {id: id});
+  }
 
 }
