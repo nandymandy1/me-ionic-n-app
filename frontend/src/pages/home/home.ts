@@ -7,6 +7,7 @@ import { ShowPage } from '../show/show';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   constructor(public navCtrl: NavController) {

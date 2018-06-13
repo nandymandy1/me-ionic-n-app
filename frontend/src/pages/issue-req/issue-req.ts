@@ -10,7 +10,7 @@ import { HomePage } from '../home/home';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-issue-req',
   templateUrl: 'issue-req.html',

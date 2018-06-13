@@ -9,7 +9,9 @@ const cors = require("cors");
 // MongoDB Database
 const mongoose = require("mongoose");
 // For Sessions and Authentication
-const passport = require("passport");
+// const passport = require("passport");
+
+// Database Config
 const config = require("./config/db");
 
 // Database Connection
@@ -50,6 +52,8 @@ app.get("*", (req, res) => {
 // PORT
 const port = process.env.PORT || 5000;
 
+
+// Port Listener
 app.listen(port, () => {
   console.log("Server started on port " + port);
 });

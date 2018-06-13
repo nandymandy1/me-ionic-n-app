@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class SendRqsProvider {
   domain: String = "https://fierce-falls-78024.herokuapp.com";
+  
   constructor(public http: Http) {
     // console.log('Hello SendRqsProvider Provider');
   }

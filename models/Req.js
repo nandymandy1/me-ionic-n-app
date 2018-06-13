@@ -98,6 +98,7 @@ module.exports.getStyleByName = function(style_name, callback) {
   Style.findOne(query, callback);
 };
 */
+
 module.exports.addReq = function(newReq, callback) {
   newReq.save(callback);
 };

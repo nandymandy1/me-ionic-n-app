@@ -14,7 +14,8 @@ import { ShowPage } from '../pages/show/show';
 import { IssueReqPage } from '../pages/issue-req/issue-req';
 
 import { SendRqsProvider } from '../providers/send-rqs/send-rqs';
-
+// Barcode Scanner
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { SendRqsProvider } from '../providers/send-rqs/send-rqs';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SendRqsProvider
+    SendRqsProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

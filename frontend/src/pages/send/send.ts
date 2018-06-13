@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { SendRqsProvider } from '../../providers/send-rqs/send-rqs';
+// Barcode Scanner
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 
 /**
  * Generated class for the SendPage page.
@@ -9,7 +11,7 @@ import { SendRqsProvider } from '../../providers/send-rqs/send-rqs';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-send',
   templateUrl: 'send.html',
@@ -25,7 +27,11 @@ export class SendPage {
   section:String = "";
   line:String = "";
 
-  constructor(public navCtrl: NavController, private sR: SendRqsProvider, public navParams: NavParams,  private toastController: ToastController ) {
+  // QR Code
+  scannedData: any = {};
+  options: BarcodeScannerOptions;
+
+  constructor(public navCtrl: NavController, private sR: SendRqsProvider, public navParams: NavParams,  private toastController: ToastController, public scanner: BarcodeScanner ) {
 
   }
 
@@ -78,8 +84,18 @@ export class SendPage {
     }
 
     // Open qr code scanner
-    openQr(){
-      console.log('Hello How r');
-    }
+      // to scan the data
+  openQr(){
+    this.options = {
+      prompt: "Scan your barcode"
+    };
+    this.scanner.scan(this.options).then((data) => {
+      this.scannedData = data;
+      this.a_id = this.scannedData.text;
+    },
+    (err) => {
+      console.log(err);
+    });
+  }
 
 }

@@ -10,7 +10,6 @@ import { IssueReqPage } from '../issue-req/issue-req';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-show',
   templateUrl: 'show.html',
@@ -29,7 +28,7 @@ export class ShowPage {
     this.getI();
     this.getIR();
   }
-  // get all the requsisiotns which are waiting to be approved on loading
+  // get all the requsitions which are waiting to be approved on loading
   getA(){
     this.sR.getApprovals().subscribe(res => {
       this.approvals = res.req;
